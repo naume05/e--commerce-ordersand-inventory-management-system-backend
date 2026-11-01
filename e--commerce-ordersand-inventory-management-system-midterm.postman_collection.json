@@ -1,0 +1,648 @@
+{
+	"info": {
+		"_postman_id": "e9c20a1f-4bb7-4f65-8b89-98317e17cb93",
+		"name": "e--commerce-ordersand-inventory-management-system-midterm",
+		"description": "Postman Collection for E-Commerce Orders and Inventory Management System midterm submission by Naume Murungi (Student ID: 26334).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Part A - Domain Model & CRUD",
+			"item": [
+				{
+					"name": "A2 - Save Delivery Zone",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Rwamagana\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-zones/save",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-zones", "save"]
+						}
+					}
+				},
+				{
+					"name": "A2 - Get All Delivery Zones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-zones/all",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-zones", "all"]
+						}
+					}
+				},
+				{
+					"name": "A2 - Get Delivery Zone By Id (404 Error Demo)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-zones/00000000-0000-0000-0000-000000000000",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-zones", "00000000-0000-0000-0000-000000000000"]
+						}
+					}
+				},
+				{
+					"name": "A2 - Save Delivery Bike",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"bikeNumber\": 5,\n  \"plateNumber\": \"RAD 105 E\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-bikes/save",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-bikes", "save"]
+						}
+					}
+				},
+				{
+					"name": "A2 - Get All Delivery Bikes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-bikes/all",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-bikes", "all"]
+						}
+					}
+				},
+				{
+					"name": "A2 - Save Delivery Rider",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Alex\",\n  \"lastName\": \"Kagabo\",\n  \"phone\": \"0788444444\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-riders/save",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-riders", "save"]
+						}
+					}
+				},
+				{
+					"name": "A2 - Get All Delivery Riders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-riders/all",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-riders", "all"]
+						}
+					}
+				},
+				{
+					"name": "A2 - Save Customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Claudine\",\n  \"lastName\": \"Mukamana\",\n  \"customerCode\": \"C-20486\",\n  \"email\": \"claudine@example.com\",\n  \"phone\": \"0788555555\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/customers/save",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customers", "save"]
+						}
+					}
+				},
+				{
+					"name": "A2 - Get All Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/customers/all",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customers", "all"]
+						}
+					}
+				},
+				{
+					"name": "A2 - Get All Customer Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/customer-orders/all",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customer-orders", "all"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Part B - Derived Queries",
+			"item": [
+				{
+					"name": "B1 - Find Customers by LastName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/customers/by-last-name?lastName=murungi",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customers", "by-last-name"],
+							"query": [
+								{
+									"key": "lastName",
+									"value": "murungi"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "B2 - Customer Orders by Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/customer-orders/by-status?status=PLACED",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customer-orders", "by-status"],
+							"query": [
+								{
+									"key": "status",
+									"value": "PLACED"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "B3 - Customer Orders in Date Range",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/customer-orders/between?start=2026-10-01&end=2026-10-31",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customer-orders", "between"],
+							"query": [
+								{
+									"key": "start",
+									"value": "2026-10-01"
+								},
+								{
+									"key": "end",
+									"value": "2026-10-31"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Part C - JPQL with Joins",
+			"item": [
+				{
+					"name": "C1 - Delivery Riders by Delivery Zone",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-riders/by-delivery-zone?name=gasabo",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-riders", "by-delivery-zone"],
+							"query": [
+								{
+									"key": "name",
+									"value": "gasabo"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "C2 - Free Delivery Bikes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-bikes/free",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-bikes", "free"]
+						}
+					}
+				},
+				{
+					"name": "C3 - Delivery Zones Nobody Holds",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-zones/unused",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-zones", "unused"]
+						}
+					}
+				},
+				{
+					"name": "C4 - Customers of a Delivery Rider",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/customers/of-delivery-rider/{{riderId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customers", "of-delivery-rider", "{{riderId}}"]
+						}
+					}
+				},
+				{
+					"name": "C4 - Customers of Nonexistent Rider (404 Error Demo)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/customers/of-delivery-rider/00000000-0000-0000-0000-000000000000",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customers", "of-delivery-rider", "00000000-0000-0000-0000-000000000000"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Part D - Business Rules",
+			"item": [
+				{
+					"name": "D1 - Safe Saving Past Date (400 Error Demo)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"orderDate\": \"2020-01-01\",\n  \"status\": \"PLACED\",\n  \"totalAmount\": 15000.0,\n  \"paymentMethod\": \"MOMO\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/customer-orders/save",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customer-orders", "save"]
+						}
+					}
+				},
+				{
+					"name": "D1 - Safe Saving Success",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"orderDate\": \"2026-11-20\",\n  \"totalAmount\": 18000.0,\n  \"paymentMethod\": \"MOMO\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/customer-orders/save",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customer-orders", "save"]
+						}
+					}
+				},
+				{
+					"name": "D2 - Status Flow Update (SHIPPED)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/customer-orders/{{orderId}}/status?status=SHIPPED",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customer-orders", "{{orderId}}", "status"],
+							"query": [
+								{
+									"key": "status",
+									"value": "SHIPPED"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "D2 - Status Flow Invalid Move (400 Error Demo)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/customer-orders/{{orderId}}/status?status=PLACED",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customer-orders", "{{orderId}}", "status"],
+							"query": [
+								{
+									"key": "status",
+									"value": "PLACED"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "D3 - Add Delivery Zone to Rider",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-riders/{{riderId}}/delivery-zones/{{zoneId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-riders", "{{riderId}}", "delivery-zones", "{{zoneId}}"]
+						}
+					}
+				},
+				{
+					"name": "D4 - Move Rider to Another Bike",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-riders/{{riderId}}/delivery-bike?bikeNumber=4",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-riders", "{{riderId}}", "delivery-bike"],
+							"query": [
+								{
+									"key": "bikeNumber",
+									"value": "4"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "D4 - Move Rider to Taken Bike (409 Error Demo)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-riders/{{riderId}}/delivery-bike?bikeNumber=2",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-riders", "{{riderId}}", "delivery-bike"],
+							"query": [
+								{
+									"key": "bikeNumber",
+									"value": "2"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Part E - Delivery Receipts",
+			"item": [
+				{
+					"name": "E1 - Write Delivery Receipt Success",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"receivedBy\": \"Customer\",\n  \"remarks\": \"Left at the reception, signed by guard\",\n  \"parcels\": 2\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-receipts/save?customerOrderId={{deliveredOrderId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-receipts", "save"],
+							"query": [
+								{
+									"key": "customerOrderId",
+									"value": "{{deliveredOrderId}}"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "E1 - Write Receipt for Non-Delivered Order (400 Error Demo)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"receivedBy\": \"Customer\",\n  \"remarks\": \"Left at the reception, signed by guard\",\n  \"parcels\": 2\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-receipts/save?customerOrderId={{placedOrderId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-receipts", "save"],
+							"query": [
+								{
+									"key": "customerOrderId",
+									"value": "{{placedOrderId}}"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "E2 - Delivery Receipt History of a Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-receipts/customer/C-20481",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-receipts", "customer", "C-20481"]
+						}
+					}
+				},
+				{
+					"name": "E3 - Delete Order Protected by Receipts (409 Error Demo)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/customer-orders/delete/{{orderWithReceiptId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customer-orders", "delete", "{{orderWithReceiptId}}"]
+						}
+					}
+				},
+				{
+					"name": "E3 - Delete Delivery Receipt",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/delivery-receipts/delete/{{receiptId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "delivery-receipts", "delete", "{{receiptId}}"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Part F - Reports & Bulk Updates",
+			"item": [
+				{
+					"name": "F1 - Customer Orders Per Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/customer-orders/stats/by-status",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customer-orders", "stats", "by-status"]
+						}
+					}
+				},
+				{
+					"name": "F2 - Delivery Rider is Absent (Bulk Cancel Day)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/customer-orders/cancel-day?deliveryRiderId={{riderId}}&date=2026-10-20",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customer-orders", "cancel-day"],
+							"query": [
+								{
+									"key": "deliveryRiderId",
+									"value": "{{riderId}}"
+								},
+								{
+									"key": "date",
+									"value": "2026-10-20"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Bonus Features",
+			"item": [
+				{
+					"name": "Bonus - Dashboard Summary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/dashboard/summary",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "dashboard", "summary"]
+						}
+					}
+				},
+				{
+					"name": "Bonus - Customer Orders Page by Page",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/customer-orders/page?page=0&size=5&sort=orderDate,desc",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customer-orders", "page"],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "orderDate,desc"
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "riderId",
+			"value": ""
+		},
+		{
+			"key": "zoneId",
+			"value": ""
+		},
+		{
+			"key": "orderId",
+			"value": ""
+		},
+		{
+			"key": "deliveredOrderId",
+			"value": ""
+		},
+		{
+			"key": "placedOrderId",
+			"value": ""
+		},
+		{
+			"key": "orderWithReceiptId",
+			"value": ""
+		},
+		{
+			"key": "receiptId",
+			"value": ""
+		}
+	]
+}
+
